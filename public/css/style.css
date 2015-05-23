@@ -1,0 +1,144 @@
+body {
+    padding-top: 145px;
+    padding-bottom: 40px;
+    font-size: 18px;
+    background: #E1D9D5;
+}
+
+a {
+    color: red;
+}
+a.navbar-brand, a.navbar-brand:visited, a.navbar-brand:active {
+    color: red;    
+}
+.zf-green {
+    color: #68b604;
+}
+.btn {
+    margin-bottom: 15px;
+}
+.btn-primary {
+    border-color: grey;
+    background-color: grey;
+}
+.btn-primary:hover {
+    background-color: black;
+    border-color: black;
+}
+.btn-success {
+  background-color: #57a900;
+  background-image: -moz-linear-gradient(top, #70d900, #57a900);
+  background-image: -ms-linear-gradient(top, #70d900, #57a900);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#70d900), to(#57a900));
+  background-image: -webkit-linear-gradient(top, #70d900, #57a900);
+  background-image: -o-linear-gradient(top, #70d900, #57a900);
+  background-image: linear-gradient(top, #70d900, #57a900);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#70d900', endColorstr='#57a900', GradientType=0);
+}
+
+.btn-success:hover,
+.btn-success:active,
+.btn-success.active,
+.btn-success.disabled,
+.btn-success[disabled] {
+  background-color: #57a900;
+}
+
+.btn-success:active, .btn-success.active {
+  background-color: #57a900;
+}
+
+div.container a.brand {
+    background: url("../img/zf2-logo.png") no-repeat scroll 0 10px transparent;
+    margin-left: 0;
+    padding: 8px 20px 12px 40px;
+}
+
+nav {
+    background-color: #000;
+}
+.navbar-header {
+    margin-right: 8%;
+}
+.navbar-brand {
+    padding: 14px 0;
+    color: red;
+    font-size: 25px;
+    font-style: italic;
+}
+.navbar-nav {
+    padding-left: 8%;
+}
+.navbar-nav>li>a {
+    height: 105px; 
+    line-height: 100px;
+    padding: 0 30px;
+    font-size: 25px;
+    color: red;
+    text-decoration: underline;
+}
+.navbar-nav>li>a:hover {
+    background: #E1D9D5;
+}
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+    vertical-align: middle;    
+}
+.table td.text-data, .table th {
+    text-align: center;
+}
+.table td.edit-link a {
+    padding: 0 10px;
+    text-decoration: underline;
+}
+input.form-control[type="file"] {
+    border: none;
+}
+span.alert {
+    font-size: 14px;
+    color: #c0392b;
+    padding: 0;
+}
+ul.gallery-imgs {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul.gallery-imgs li {
+    float: left;
+    margin:  0 5px 10px 0;
+}
+.singer {
+    border: 1px solid #CCCCCC;
+    min-height: 320px;
+    background: #F1ECEA;
+}
+
+.singer img {
+    max-width: 100%;
+} 
+.singer p {
+    color: #CC0000;
+    margin-top: 10px;        
+}
+.singer span {
+    color: red;
+    padding-right: 10px;
+}
+.paginationControl {
+    margin-top: 20px;
+}
+.paginationControl a {
+    color: #CC0000;
+}
+form dt {
+    margin-top: 10px;
+}
+form ul.errors {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 15px 0 10px 0;     
+}
+form ul.errors li {
+    color: red;
+} 
+     

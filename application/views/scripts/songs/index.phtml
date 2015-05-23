@@ -1,0 +1,74 @@
+<br /><br />
+<div class="row">
+    <div class="col-sm-9">
+        <?php 
+            if(!empty($this->songs)) :
+        ?>    
+            
+            <a href="<?php echo $this->url(
+                                    array(
+                                        'controller'    => 'songs',
+                                        'action'        => 'index',
+                                        'singer'        => $this->singer->id,
+                                        'apply-reorder' => true
+                                    ),
+                                    null,
+                                    TRUE);?>" class="btn btn-primary reorder-photos" data-id="<?php print $this->singer->id;?>">Reorder Photos</a>
+            <a href="<?php echo $this->url(
+                                    array(
+                                        'controller'    => 'songs',
+                                        'action'        => 'index',
+                                        'singer'        => $this->singer->id,
+                                        'show-photos' => true
+                                    ),
+                                    null,
+                                    TRUE);?>" class="btn btn-primary" data-id="<?php print $this->singer->id;?>">Show All Photos</a>
+        
+            <ul class="gallery-imgs">            
+                <?php foreach ($this->songs as $song): ?>
+                    <li id="<?php print $song->imgid;?>" class="img ui-state-default">
+                        <a class="fancybox img-link" rel="singer-imgs" href="<?php print $this->baseUrl('img/singers/'.$this->singer->name.'/'.$song->galleryimg)?>"
+                            alt="<?php print $song->galleryimgalt;?>"
+                        >
+                            <img src="<?php print $this->baseUrl('img/singers/'.$this->singer->name.'/thumbs/'.$song->galleryimg)?>">
+                        </a>
+                    </li>
+                <?php endforeach ?>
+                
+            </ul>
+            <div class="clearfix"></div>
+            <div class="error"></div>
+            <?php 
+                if($this->paginate == true) {
+                    echo $this->paginationControl($this->songs,
+                                            'Sliding',
+                                            'partial/pagination.phtml',
+                                            array('singerId' => $this->singer->id));        
+                }
+            ?>
+            
+        <?php
+            endif;
+        ?> 
+    </div>
+    <a href="<?php echo $this->url(
+                            array(
+                                'controller' => 'songs',
+                                'action'     => 'index',
+                                'random'      => true,
+                            ),
+                            null,
+                            TRUE);?>" class="singer col-sm-3">
+    <!--<a href="
+    <?php echo $this->url(
+                                    array(
+                                        'controller' => 'books',
+                                        'action'     => 'index',
+                                        'repeat'     => true,
+                                    ));?>
+    " class="singer col-sm-3">-->
+        <p><span>Singer:</span><?php print $this->singer->name;?></p>
+        <img src="<?php print $this->baseUrl('img/singers/'.$this->singer->name.'/'.$this->singer->mainimg);?>">
+        
+    </a>
+</div>

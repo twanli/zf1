@@ -1,0 +1,82 @@
+<?php echo $this->doctype() ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Zend Framework Quickstart Application</title>
+  <?php echo $this->headLink()->appendStylesheet($this->baseUrl('css/bootstrap-theme.min.css'))
+                              ->appendStylesheet($this->baseUrl('css/bootstrap.min.css'))
+                              ->appendStylesheet($this->baseUrl('css/jquery.fancybox.css'))
+                              ->appendStylesheet($this->baseUrl('css/jquery-ui.min.css'))
+                              ->appendStylesheet($this->baseUrl('css/style.css')) ?>
+  <?php 
+  $config = new Zend_Config_Ini(APPLICATION_PATH .'/configs/my.ini', 'path');
+  echo $this->headScript()
+    ->prependFile($this->baseUrl('js/my.js'))
+    ->prependFile($this->baseUrl('js/jquery.songsGallery.js'))    
+    ->prependFile($this->baseUrl('js/jquery.fancybox.pack.js'))
+    ->prependScript('var baseUrl = "'.$config->absolutePath.'";')
+    ->prependFile($this->baseUrl('js/bootstrap.min.js'))
+    ->prependFile($this->baseUrl('js/jquery-ui.min.js'))
+    ->prependFile($this->baseUrl('js/jquery.min.js'))
+    ->prependFile($this->baseUrl('js/respond.min.js'), 'text/javascript', array('conditional' => 'lt IE 9',))
+    ->prependFile($this->baseUrl('js/html5shiv.js'),   'text/javascript', array('conditional' => 'lt IE 9',))
+
+; ?>
+</head>
+<body>
+    <nav class="navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="<?php echo $this->url(
+                                    array(
+                                        'controller' => 'index',
+                                        'action'     => 'index'
+                                    ),
+                                    null,
+                                    TRUE); ?>">
+                    <img src="<?php print $this->baseUrl('img/rajce.gif') ?>"  alt="Your favorite songs"/>
+                        &nbsp;<?php print 'Your Favorite Songs:-)' ?>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="<?php echo $this->url(
+                                    array(
+                                        'controller' => 'index',
+                                        'action'     => 'index'
+                                    ),
+                                    null,
+                                    TRUE); ?>"><?php echo 'Home' ?></a></li>
+                    <li><a href="<?php echo $this->url(
+                                    array(
+                                        'controller' => 'index',
+                                        'action'     => 'contact'
+                                    ),
+                                    null,
+                                    TRUE);?>"><?php echo 'Contact' ?></a></li>
+                    <li><a href="<?php echo $this->url(
+                                    array(
+                                        'controller' => 'songs',
+                                        'action'     => 'index',
+                                        'first'      => true,
+                                    ),
+                                    null,
+                                    TRUE);?>"><?php echo 'Gallery' ?></a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+    <div class="container">
+        <?php echo $this->layout()->content ?>
+    </div>
+    <hr>
+    <footer>
+
+    </footer>
+</body>
+</html>
