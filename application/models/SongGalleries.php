@@ -17,7 +17,7 @@ class Application_Model_SongGalleries
             $this->setOptions($options);
         }
         
-        $config = new Zend_Config_Ini(APPLICATION_PATH.'/configs/my.ini', 
+        $config = new Zend_Config_Ini(APPLICATION_PATH.'/configs/config.ini', 
         'gallery');
         $this->thumb_width  = $config->thumbnail_width;
         $this->thumb_height = $config->thumbnail_height;        

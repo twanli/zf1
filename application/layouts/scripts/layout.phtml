@@ -9,12 +9,12 @@
                               ->appendStylesheet($this->baseUrl('css/jquery-ui.min.css'))
                               ->appendStylesheet($this->baseUrl('css/style.css')) ?>
   <?php 
-  $config = new Zend_Config_Ini(APPLICATION_PATH .'/configs/my.ini', 'path');
+  $config = new Zend_Config_Ini(APPLICATION_PATH . '/configs/config.ini', 'path');
   echo $this->headScript()
     ->prependFile($this->baseUrl('js/my.js'))
     ->prependFile($this->baseUrl('js/jquery.songsGallery.js'))    
     ->prependFile($this->baseUrl('js/jquery.fancybox.pack.js'))
-    ->prependScript('var baseUrl = "'.$config->absolutePath.'";')
+    ->prependScript('var baseUrl = "'. $config->absolutePath .'";')
     ->prependFile($this->baseUrl('js/bootstrap.min.js'))
     ->prependFile($this->baseUrl('js/jquery-ui.min.js'))
     ->prependFile($this->baseUrl('js/jquery.min.js'))
