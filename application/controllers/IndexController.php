@@ -17,14 +17,14 @@ class IndexController extends Zend_Controller_Action
     public function contactAction()
     {
         $request = $this->getRequest();
-        $msgSent = $request->getParam('msg_sent');
+        $msg     = $request->getParam('msg');
         $form    = new Application_Form_Contact();
  
         if ($this->getRequest()->isPost()) {
             if ($form->isValid($request->getPost())) {
                 ini_set('max_execution_time', 300);
                 $config = new Zend_Config_Ini(APPLICATION_PATH . 
-                    '/configs/my.ini', 'mail');
+                    '/configs/config.ini', 'mail');
                 $username = $config->username;
                 $pass = $config->password;
                 $name    = $form->getValue('name');
@@ -39,26 +39,31 @@ class IndexController extends Zend_Controller_Action
                              'port' => 587));
                 Zend_Mail::setDefaultTransport($tr);
                                 
-                $mail = new Zend_Mail();
-                $mail->setBodyText($message);
-                $mail->setFrom($email, 'Some Sender');
-                $mail->addTo('tomas.wanli@gmail.com', 'Some Recipient');
-                $mail->setSubject('Contact Message from customer');
-                $mail->send();
-                
+                try{
+                    $mail = new Zend_Mail();
+                    $mail->setBodyText($message);
+                    $mail->setFrom($email, 'Some Sender');
+                    $mail->addTo('tomas.wanli@gmail.com', 'Some Recipient');
+                    $mail->setSubject('Contact Message from customer');
+                    $mail->send();
+                    return $this->_helper->redirector('contact',
+                                                      'index',
+                                                      'default',
+                                                      array('msg' => 1)  
+                                                     );                    
 
-                
-                return $this->_helper->redirector('contact',
-                                                  'index',
-                                                  'default',
-                                                  array('msg_sent' => 1)  
-                                                 );
-                
-            }
+                } catch(\Exception $e) {
+                    return $this->_helper->redirector('contact',
+                                                      'index',
+                                                      'default',
+                                                      array('msg' => 0)  
+                                                     );                    
+                    }
+                }
         }
  
         $this->view->form = $form;
-        $this->view->sent = $msgSent;
+        $this->view->sent = $msg;
     }
 
 }

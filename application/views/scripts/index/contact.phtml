@@ -2,5 +2,11 @@
     $this->form->setAction($this->url());
     echo $this->form;
     if ($this->sent != null) {
-        echo "<span>Message was sent successfully.</span>";
+        if($this->sent == 1) {
+            echo "<span>Message was sent successfully.</span>";    
+        } else {
+            echo "<span>There is an error, check your configuration file in
+                 configs/config.ini file .</span>";    
+        }
+        
     }
